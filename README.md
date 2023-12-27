@@ -23,6 +23,7 @@ Update the previous overlap values for the other object (blocks[i]) if no collis
 
 void Mario::blockCollision()
 {   
+
     for (int i = 0; i < BLOCKMAX; i++)
     {
         int dx = abs(getCenterX() - blocks[i]->getCenterX());
