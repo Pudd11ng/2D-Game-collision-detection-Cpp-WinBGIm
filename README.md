@@ -18,3 +18,43 @@ Within the collision block, analyze previous overlap values and the relative pos
 
 5. Update Overlap Values:
 Update the previous overlap values for the other object (blocks[i]) if no collision is detected.
+
+//Code to detect the collision and and act accordingly depending on which way they collide
+void Mario::blockCollision()
+{   
+    for (int i = 0; i < BLOCKMAX; i++)
+    {
+        int dx = abs(getCenterX() - blocks[i]->getCenterX());
+        int dy = abs(getCenterY() - blocks[i]->getCenterY());
+        int overlapX = (size/2) + ((blocks[i]->getWidth())/2) - dx;
+        int overlapY = (size/2) + ((blocks[i]->getHeight())/2) - dy;
+
+        if (overlapX > 0 && overlapY > 0)
+        {
+            if (blocks[i]->getpreviousOverlapY() > 0 && blocks[i]->getpreviousOverlapX() <= 0 && getX() < blocks[i]->getRight()) 
+            {x -= (overlapX); blocks[i]->draw();}
+            // {x = blocks[i]->getX() - 1 - size;}
+
+            if (blocks[i]->getpreviousOverlapY() > 0 && blocks[i]->getpreviousOverlapX() <= 0 && getRight() > blocks[i]->getX()) 
+            // {x -= (overlapX); } 
+            {x = blocks[i]->getRight() + 1;}
+
+            if (blocks[i]->getpreviousOverlapX() > 0 && blocks[i]->getpreviousOverlapY() <= 0 && getY() < blocks[i]->getBottom())  
+            {y -= (overlapY); blocks[i]->draw();}
+            // {y = blocks[i]->getY() - 1 - size;}
+
+            if (blocks[i]->getpreviousOverlapX() > 0 && blocks[i]->getpreviousOverlapY() <= 0 && getBottom() > blocks[i]->getY())  
+            // {x -= (overlapY); } 
+            {y = blocks[i]->getBottom() + 1;}
+
+        }   
+
+        if (!(overlapX > 0 && overlapY > 0))
+        {
+            blocks[i]->setpreviousOverlapX(overlapX);
+            blocks[i]->setpreviousOverlapY(overlapY); 
+        }
+
+    }
+
+}
