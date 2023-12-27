@@ -20,6 +20,7 @@ Within the collision block, analyze previous overlap values and the relative pos
 Update the previous overlap values for the other object (blocks[i]) if no collision is detected.
 
 //Code to detect the collision and and act accordingly depending on which way they collide
+
 void Mario::blockCollision()
 {   
     for (int i = 0; i < BLOCKMAX; i++)
