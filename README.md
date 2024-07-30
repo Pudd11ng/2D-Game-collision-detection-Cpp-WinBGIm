@@ -1,4 +1,7 @@
 # SimpleMarioGame-Cpp-Collision
+//Install WinBGIm and add into your path
+//compile
+g++ -g -I./include main.cpp src/*.cpp -o NinjaMario -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32
 
 The Separating Axis Theorem (SAT) is employed in this code snippet to examine collisions along both the X and Y axes.
 
