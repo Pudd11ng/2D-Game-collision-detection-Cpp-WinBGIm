@@ -1,6 +1,20 @@
-# SimpleMarioGame-Cpp-Collision
-//Install WinBGIm and add into your path
-//compile
+# 2D Game collision detection - C++ WinBGIm
+// To build the NinjaMario project:
+
+// 1. Install MinGW in your desired directory. Ensure the paths in the CMakeLists.txt file match your installation directory.
+//    Example: "C:/MinGW/bin/gcc.exe"
+
+// 2. Create a build directory and navigate into it:
+mkdir build
+cd build
+
+// 3. Generate the Makefiles using CMake:
+cmake -G "MinGW Makefiles" ..
+
+// 4. Compile the project using MinGW Make:
+mingw32-make
+
+// Alternatively, if the WinBGIm graphics library is already installed, you can compile directly with the following command:
 g++ -g -I./include main.cpp src/*.cpp -o NinjaMario -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32
 
 The Separating Axis Theorem (SAT) is employed in this code snippet to examine collisions along both the X and Y axes.

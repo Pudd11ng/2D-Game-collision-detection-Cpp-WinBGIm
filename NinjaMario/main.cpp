@@ -1,6 +1,6 @@
 #include <iostream>
-#include <graphics.h>
 #include <conio.h>
+#include <graphics.h>
 #include <cstdlib>
 #include "./include/screen.hpp"
 #include "./include/block.hpp"
