@@ -56,10 +56,6 @@ void Mario::set(int _x, int _y, int _size, int _color, int _speed)
 
 void Mario::draw() const
 {
-    // setfillstyle(SOLID_FILL, color);
-    // setcolor(color);
-    // bar(x, y, x + size, y + size);
-    // readimagefile("./images/mr.jpg", x, y, x + size, y + size);
     putimage(x, y, image, COPY_PUT);
 }
 
@@ -68,12 +64,10 @@ void Mario::undraw()
     setfillstyle(SOLID_FILL, BLACK);
     setcolor(BLACK);
     bar(x, y, x + size + 1, y + size + 1);
-    // readimagefile("./images/mrb.jpg", x, y, x + size, y + size);
 }
 
 int Mario::handleMario()
 {
-
     char key = 0;
     key = getch();
     switch (key)

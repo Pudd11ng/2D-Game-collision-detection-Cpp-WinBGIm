@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <graphics.h>
 #include <cstdlib>
+#include <thread>
 #include "./include/screen.hpp"
 #include "./include/block.hpp"
 #include "./include/coin.hpp"
@@ -123,11 +124,19 @@ int main()
     }
 
     mario.update();
-    mario.spikeCollision();
-    mario.blockCollision();
-    mario.coinCollision();
-    mario.enemyCollision();
-    mario.endpointCollision();
+    //use multithreading 
+    thread spikeCollision(&Mario::spikeCollision, &mario);
+    thread blockCollision(&Mario::blockCollision, &mario);
+    thread coinCollision(&Mario::coinCollision, &mario);
+    thread enemyCollision(&Mario::enemyCollision, &mario);
+    thread endpointCollision(&Mario::endpointCollision, &mario);
+
+    spikeCollision.join();
+    blockCollision.join();
+    coinCollision.join();
+    enemyCollision.join();
+    endpointCollision.join();
+
 
     mario.draw();
 
